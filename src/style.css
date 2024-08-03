@@ -47,3 +47,98 @@
     display: flex;
     justify-content: center;
 }
+
+.form {
+    margin-bottom: 3%;
+}
+
+#weather {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3%;
+    height: 100%;
+}
+
+#weather .current {
+    margin-top: 1%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(5, 1fr);
+    gap: calc((100vh + 100vw)/2 * 0.02);
+    width: 55%;
+    margin: 0 auto;
+}
+
+#img-section {
+    grid-area: 1/1/4/2;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+#img-section img {
+    height: 100%;
+    width: 100%;
+}
+
+#place {
+    grid-area: 1/2/2/3;
+    text-align: center;
+}
+
+#datetime {
+    grid-area: 2/2/3/3;
+    text-align: center;
+}
+
+#temp {
+    grid-area: 3/2/4/3;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5%;
+    text-align: center;
+}
+
+#conditions {
+    grid-area: 5/1/6/3;
+}
+
+#humidity {
+    grid-area: 4/1/5/3;
+}
+
+#weather .week {
+    padding-top: 5vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 6fr));
+    gap: 10px;
+    width: 55%;
+    margin: 0 auto;
+}
+
+div.day {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: calc((100vh + 100vw)/2 * 0.02);;
+}
+
+button {
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 12px;
+    background-color: rgb(55, 108, 206);
+    color: white;
+}
+
+button:hover {
+    background-color: rgb(110, 151, 228);
+}
+
+button:active {
+    background-color: rgb(43, 81, 150);
+}

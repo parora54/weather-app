@@ -23,6 +23,7 @@ export async function getWeather(location) {
 
   for (let i = 1; i < 7; i++) {
     weekData.push({
+      datetime: weatherData.days[i].datetime,
       temp: weatherData.days[i].temp,
       conditions: weatherData.days[i].conditions,
     });
