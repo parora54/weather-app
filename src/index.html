@@ -7,6 +7,47 @@
 </head>
 <body>
     <div id="container">
+        <div class="header">
+            <img src="../src/assets/title.svg" alt="weather icon">
+            <p>WEATHER APP</p>
+        </div>
+        <div class="form">
+            <div class="subheading">
+                Search For
+            </div>
+            <form id="weather-form">
+                <div class="form-wrapper">
+                    <label for="city">City:</label><br>
+                    <input type="text" id="city" name="city" required><br>
+                </div>
+                <div class="form-wrapper">
+                    <label for="country">Country:</label><br>
+                    <input type="text" id="country" name="country" required>
+                </div>
+            </form>
+            <div class="button-div">
+                <button form="weather-form">Search</button>
+            </div>
+        </div>
+        <div id="weather">
+            <div class="current">
+                <div class="main-section">
+                    <img src="../src/assets/title.svg" alt="weather icon">
+                </div>
+                <div class="weather-section"></div>
+                <div class="weather-section"></div>
+                <div class="weather-section"></div>
+                <div class="weather-section"></div>
+            </div>
+            <div class="week">
+                <div class="day"></div>
+                <div class="day"></div>
+                <div class="day"></div>
+                <div class="day"></div>
+                <div class="day"></div>
+                <div class="day"></div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

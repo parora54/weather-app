@@ -1,5 +1,49 @@
 #container {
-    text-align: center;
     font-family: 'Courier New', Courier, monospace;
-    
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+    font-size: 2.5em;
+    font-weight: 700;
+    height: 100%;
+    margin-bottom: 3%;
+}
+
+.header p {
+    text-align: center;
+}
+
+.header img {
+    height: 2em;
+    width: 2em;
+}
+
+.form .subheading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75em;
+}
+
+.form form {
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    align-items: center;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    font-weight: 700;
+}
+
+.form-wrapper {
+    display: flex;
+}
+
+.form .button-div {
+    display: flex;
+    justify-content: center;
 }

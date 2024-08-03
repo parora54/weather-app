@@ -1,14 +1,15 @@
-import * as css from './style.css'
+import * as css from "./style.css";
+import rainyIcon from "./assets/cloudy-day-1.svg";
 
-const body = document.querySelector('#container')
+const body = document.querySelector("#container");
+const apiKey = "CDD8XUVVSUEXJSJAUPXP9A4NG";
 
-const button = document.createElement('button')
-button.textContent = "click me"
+getWeather("Toronto,Canada");
 
-body.appendChild(button)
+//IMAGE STUFF
+// const myIcon = new Image();
+// myIcon.src = rainyIcon;
 
-button.addEventListener('click', () => {
-    const div = document.createElement('div')
-    div.textContent = 'Hello World'
-    body.appendChild(div)
-})
+// console.log(rainyIcon);
+
+// body.appendChild(myIcon);
