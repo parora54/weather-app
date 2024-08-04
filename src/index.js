@@ -8,7 +8,7 @@ const body = document.querySelector("#container");
 const apiKey = "CDD8XUVVSUEXJSJAUPXP9A4NG";
 
 body.appendChild(loadHome());
-body.appendChild(weatherDisplay());
+// body.appendChild(weatherDisplay());
 
 const button = document.querySelector("button");
 
@@ -18,12 +18,14 @@ button.addEventListener("click", (e) => {
   const city = document.getElementById("city");
   const country = document.getElementById("country");
 
+  const apiPrompt = city.value + "," + country.value;
+
   city.value = "";
   country.value = "";
 
-  const apiPrompt = city.value + "," + country.value;
+  const weatherObjArr = getWeather(apiPrompt, apiKey);
+  console.log(weatherObjArr);
+  // console.log(weatherObjArr[0], weatherObjArr[1]);
 
-  const weatherObj = getWeather(apiPrompt, apiKey);
-
-  console.log(weatherObj);
+  // body.appendChild(weatherDisplay(weatherObjArr[0], weatherObjArr[1]));
 });

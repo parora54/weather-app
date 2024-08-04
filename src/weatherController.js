@@ -1,4 +1,35 @@
-export function weatherDisplay() {
+import cloudyDay from "./assets/cloudy-day-1.svg";
+import cloudyNight from "./assets/cloudy-night-1.svg";
+import day from "./assets/day.svg";
+import night from "./assets/night.svg";
+import rainy from "./assets/rainy-3.svg";
+import snowy from "./assets/snowy-3.svg";
+import thunder from "./assets/thunder.svg";
+
+function imageSelector(prompt) {
+  switch (prompt) {
+    case "clear-day":
+      return day;
+    case "clear-night":
+      return night;
+    case "partly-cloudy-night":
+      return cloudyNight;
+    case "partly-cloudy-day":
+      return cloudyDay;
+    case "cloudy":
+      return cloudyDay;
+    case "rain":
+      return rainy;
+    case "snow":
+      return snowy;
+    case "thunder-rain":
+      return thunder;
+    default:
+      return day;
+  }
+}
+
+export function weatherDisplay(currentCondObj, weekDataObj) {
   // Create and append the weather section
   const weatherSection = document.createElement("div");
   weatherSection.id = "weather";
@@ -9,9 +40,9 @@ export function weatherDisplay() {
   const imgSection = document.createElement("div");
   imgSection.id = "img-section";
 
-  const weatherIcon = document.createElement("img");
-  weatherIcon.src = "../src/assets/cloudy.svg";
-  weatherIcon.alt = "weather icon";
+  const weatherIcon = new Image();
+  console.log(currentCondObj.icon);
+  weatherIcon.src = imageSelector(currentCondObj.icon);
   imgSection.appendChild(weatherIcon);
 
   currentWeather.appendChild(imgSection);
@@ -73,12 +104,4 @@ export function weatherDisplay() {
   weatherSection.appendChild(weekForecast);
 
   return weatherSection;
-}
-
-function imageSelector(prompt) {
-  //IMAGE STUFF
-  // const myIcon = new Image();
-  // myIcon.src = rainyIcon;
-  // console.log(rainyIcon);
-  // body.appendChild(myIcon);
 }

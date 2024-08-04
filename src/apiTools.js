@@ -8,16 +8,16 @@ export async function getWeather(location, apiKey) {
 
   const weatherData = await response.json();
 
-  const currentConditionsData = [
-    weatherData.resolvedAddress,
-    weatherData.description,
-    weatherData.currentConditions.datetime,
-    weatherData.currentConditions.temp,
-    weatherData.currentConditions.feelslike,
-    weatherData.currentConditions.conditions,
-    weatherData.currentConditions.humidity,
-    weatherData.currentConditions.icon,
-  ];
+  const currentConditionsData = {
+    address: weatherData.resolvedAddress,
+    desc: weatherData.description,
+    datetime: weatherData.currentConditions.datetime,
+    temp: weatherData.currentConditions.temp,
+    feelslike: weatherData.currentConditions.feelslike,
+    conditions: weatherData.currentConditions.conditions,
+    humidity: weatherData.currentConditions.humidity,
+    icon: weatherData.currentConditions.icon,
+  };
 
   const weekData = [];
 
@@ -29,11 +29,13 @@ export async function getWeather(location, apiKey) {
     });
   }
 
-  console.log(currentConditionsData);
-  console.log(weekData);
-  console.log(
-    `The weather in celsius is ${convert(currentConditionsData[3], "c")}`
-  );
+  // console.log(currentConditionsData);
+  // console.log(weekData);
+  // console.log(
+  //   `The weather in celsius is ${convert(currentConditionsData.temp, "c")}`
+  // );
 
-  return currentConditionsData, weekData;
+  const dataArray = [currentConditionsData, weekData];
+
+  return dataArray;
 }
