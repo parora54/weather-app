@@ -15,6 +15,11 @@ const button = document.querySelector("button");
 button.addEventListener("click", (e) => {
   e.preventDefault();
 
+  try {
+    const weather = document.querySelector("#weather");
+    body.removeChild(weather);
+  } catch (error) {}
+
   const city = document.getElementById("city");
   const country = document.getElementById("country");
 
@@ -23,9 +28,9 @@ button.addEventListener("click", (e) => {
   city.value = "";
   country.value = "";
 
-  const weatherObjArr = getWeather(apiPrompt, apiKey);
-  console.log(weatherObjArr);
-  // console.log(weatherObjArr[0], weatherObjArr[1]);
+  getWeather(apiPrompt, apiKey).then(([currentConditionsData, weekData]) => {
+    console.log(currentConditionsData, weekData);
 
-  // body.appendChild(weatherDisplay(weatherObjArr[0], weatherObjArr[1]));
+    body.appendChild(weatherDisplay(currentConditionsData, weekData));
+  });
 });
