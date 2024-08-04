@@ -94,6 +94,8 @@ body {
 #place {
     grid-area: 1/2/2/3;
     text-align: center;
+    font-size: 1.2em;
+    font-weight: 700;
 }
 
 #datetime {
@@ -131,6 +133,10 @@ div.day {
     display: flex;
     flex-direction: column;
     gap: calc((100vh + 100vw)/2 * 0.02);;
+}
+
+div.day div:first-child {
+    font-weight: 700;
 }
 
 button {

@@ -5,6 +5,7 @@ import night from "./assets/night.svg";
 import rainy from "./assets/rainy-3.svg";
 import snowy from "./assets/snowy-3.svg";
 import thunder from "./assets/thunder.svg";
+import { convert, formatDate } from "./metric";
 
 function imageSelector(prompt) {
   switch (prompt) {
@@ -49,35 +50,42 @@ export function weatherDisplay(currentCondObj, weekDataObj) {
 
   const place = document.createElement("div");
   place.id = "place";
-  place.textContent = "Placeholder, Place";
+  place.textContent = currentCondObj.address;
   currentWeather.appendChild(place);
 
   const datetime = document.createElement("div");
   datetime.id = "datetime";
-  datetime.textContent = "datetime";
+  datetime.textContent = currentCondObj.datetime.slice(0, -3);
   currentWeather.appendChild(datetime);
 
   const temp = document.createElement("div");
   temp.id = "temp";
 
   const currentTemp = document.createElement("div");
-  currentTemp.textContent = "Current Temp: ";
+  currentTemp.textContent = `Current Temp: ${convert(
+    currentCondObj.temp,
+    "c"
+  )} \u00B0C`;
   temp.appendChild(currentTemp);
 
   const feelsLike = document.createElement("div");
-  feelsLike.textContent = "Feels Like:";
+  feelsLike.textContent = `Feels Like: ${convert(
+    currentCondObj.feelslike,
+    "c"
+  )} \u00B0C`;
   temp.appendChild(feelsLike);
 
   currentWeather.appendChild(temp);
 
   const humidity = document.createElement("div");
   humidity.id = "humidity";
-  humidity.textContent = "Humidity:";
+  humidity.textContent = `Humidity: ${currentCondObj.humidity}`;
   currentWeather.appendChild(humidity);
 
   const conditions = document.createElement("div");
   conditions.id = "conditions";
-  conditions.textContent = "conditions";
+  conditions.textContent =
+    currentCondObj.conditions + ". " + currentCondObj.desc;
   currentWeather.appendChild(conditions);
 
   weatherSection.appendChild(currentWeather);
@@ -91,11 +99,15 @@ export function weatherDisplay(currentCondObj, weekDataObj) {
     day.className = "day";
 
     const dayDatetime = document.createElement("div");
-    dayDatetime.textContent = "datetime";
+    if (i === 0) {
+      dayDatetime.textContent = "Tomorrow";
+    } else {
+      dayDatetime.textContent = formatDate(weekDataObj[i].datetime);
+    }
     day.appendChild(dayDatetime);
 
     const dayTemp = document.createElement("div");
-    dayTemp.textContent = "temp";
+    dayTemp.textContent = `${convert(weekDataObj[i].temp, "c")} \u00B0C`;
     day.appendChild(dayTemp);
 
     weekForecast.appendChild(day);
