@@ -1,6 +1,6 @@
 import { convert } from "./metric";
 
-export async function getWeather(location) {
+export async function getWeather(location, apiKey) {
   const response = await fetch(
     `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=${apiKey}`,
     { mode: "cors" }
